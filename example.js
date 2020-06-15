@@ -39,7 +39,14 @@ client.on("message", async (msg) => {
         .then((response) => {
             if (response.data.status) {
                 response.data.messages.map((message) => {
-                    client.sendMessage(msg.from, message);
+                    if (message === "*Saude*1. Quiz") {
+                        client.sendMessage(
+                            msg.from,
+                            "*Saude* \n 1. Quiz \n 2. Prevenção ao suícidio \n 3. Teste rápido \n *Segurança* \n 4. Reboque \n 5. Prevenção de acidentes \n *Perfil* \n 6. Meu cadastro \n 7. Meu pontos"
+                        );
+                    } else {
+                        client.sendMessage(msg.from, message);
+                    }
                 });
             }
         })
